@@ -22,7 +22,7 @@ payload = {
     'iss': app_id,
 }
 encoded_jwt = jwt.encode(payload, private_key, algorithm="RS256")
-
+#CODE
 
 def handler(event, context):
   data=json.loads(event['body'])

@@ -21,7 +21,7 @@ def install_dependencies(repo_name):
   print('requirements:', requirements)
   # Regular expression pattern to match "tensorflow" or "tensorflow==x.x"
   pattern = r'tensorflow(?:==\d+(\.\d+){0,2})?'
-  if 'tensorflow' in requirements:
+  if pattern in requirements:
       # Remove 'tensorflow' from the list
       requirements_without_tensorflow = [req for req in requirements if pattern not in req]
       print('requirements without tensorflow:', requirements_without_tensorflow)
