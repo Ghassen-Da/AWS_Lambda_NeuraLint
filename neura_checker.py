@@ -7,7 +7,10 @@ from endToEnd import main
 
 
 def install_dependencies(repo_name):
-    subprocess.run(['pip', 'install', '-r', f'{repo_name}/requirements.txt', '--target', '/tmp'])
+    dependencies = open(f'{repo_name}/config.json')
+    print (dependencies)
+    subprocess.run(['pip', 'install', '-r', 'grep', '-ivE' 'tensorflow', 'requirements.txt', '--target', '/tmp'])
+    # subprocess.run(['pip', 'install', '-r', f'{repo_name}/requirements.txt', '--target', '/tmp'])
   
 
 def check_repo(owner, repo_name, token, pr_number):

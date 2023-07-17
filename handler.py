@@ -25,7 +25,6 @@ encoded_jwt = jwt.encode(payload, private_key, algorithm="RS256")
 
 
 def handler(event, context):
-  print('hi ghassen')
   data=json.loads(event['body'])
   if data['action']=='opened':
      owner=data['pull_request']['head']['repo']['owner']['login']
