@@ -23,9 +23,6 @@ def install_dependencies(repo_name):
       if("tensorflow" not in req):
         file.write(req + '\n')
 
-  with open('requirements_filtered.txt', 'r') as file:
-    print('file', file.read())
-
   print("Filtered dependencies (excluding TensorFlow) have been written to requirements_filtered.txt.")
   subprocess.run(['pip', 'install', '-r', 'requirements_filtered.txt', '--target', '/tmp'])
   
