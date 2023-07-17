@@ -6,10 +6,33 @@ import sys
 from endToEnd import main
 
 
+
+# Function to read and parse the requirements.txt file
+def parse_requirements(file_path):
+    with open(file_path, 'r') as file:
+        requirements = file.readlines()
+    return [requirement.strip() for requirement in requirements]
+
+# Check if 'tensorflow' is in the requirements
+
+    
 def install_dependencies(repo_name):
-    dependencies = open(f'{repo_name}/config.json')
-    print (dependencies)
-    subprocess.run(['pip', 'install', '-r','neura_model_to_test/requirements.txt', 'grep', '-E', 'tensorflow', '--target', '/tmp'])
+  requirements = parse_requirements('neura_model_to_test/requirements.txt')
+  print('requirements:', requirements)
+  if 'tensorflow' in requirements:
+      # Remove 'tensorflow' from the list
+      requirements_without_tensorflow = [req for req in requirements if 'tensorflow' not in req]
+      print('requirements without tensorflow:', requirements_without_tensorflow)
+
+      # Write the filtered dependencies to a new file (e.g., requirements_filtered.txt)
+      with open('requirements_filtered.txt', 'w') as file:
+          for req in requirements_without_tensorflow:
+              file.write(req + '\n')
+          print('file',file)
+
+      print("Filtered dependencies (excluding TensorFlow) have been written to requirements_filtered.txt.")
+  else:
+      print("TensorFlow not found in requirements.txt. No need to create a filtered file.")
     # subprocess.run(['pip', 'install', '-r', f'{repo_name}/requirements.txt', '--target', '/tmp'])
   
 
