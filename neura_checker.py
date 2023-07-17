@@ -19,9 +19,11 @@ def parse_requirements(file_path):
 def install_dependencies(repo_name):
   requirements = parse_requirements('neura_model_to_test/requirements.txt')
   print('requirements:', requirements)
+  # Regular expression pattern to match "tensorflow" or "tensorflow==x.x"
+  pattern = r'tensorflow(?:==\d+(\.\d+){0,2})?'
   if 'tensorflow' in requirements:
       # Remove 'tensorflow' from the list
-      requirements_without_tensorflow = [req for req in requirements if 'tensorflow' not in req]
+      requirements_without_tensorflow = [req for req in requirements if pattern not in req]
       print('requirements without tensorflow:', requirements_without_tensorflow)
 
       # Write the filtered dependencies to a new file (e.g., requirements_filtered.txt)
