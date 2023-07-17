@@ -9,7 +9,7 @@ from endToEnd import main
 def install_dependencies(repo_name):
     dependencies = open(f'{repo_name}/config.json')
     print (dependencies)
-    subprocess.run(['pip', 'install', '-r', 'grep', '-ivE' 'tensorflow', 'AWS_Lambda_NeuraLint/requirements.txt', '--target', '/tmp'])
+    subprocess.run(['pip', 'install', '-r','AWS_Lambda_NeuraLint/requirements.txt', 'grep', '-ivE' 'tensorflow', '--target', '/tmp'])
     # subprocess.run(['pip', 'install', '-r', f'{repo_name}/requirements.txt', '--target', '/tmp'])
   
 
