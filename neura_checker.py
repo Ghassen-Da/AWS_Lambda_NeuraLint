@@ -13,21 +13,19 @@ def parse_requirements(file_path):
         requirements = file.readlines()
     return [requirement.strip() for requirement in requirements]
 
-# Check if 'tensorflow' is in the requirements
-
     
 def install_dependencies(repo_name):
-  requirements = parse_requirements('neura_model_to_test/requirements.txt')
+  requirements = parse_requirements(f'{repo_name}/requirements.txt')
   print('requirements:', requirements)
   # Write the filtered dependencies to a new file (e.g., requirements_filtered.txt)
   with open('requirements_filtered.txt', 'w') as file:
       for req in requirements:
           if("tensorflow" not in req):
             file.write(req + '\n')
-      print('file',file)
+      print('file',file.read())
 
   print("Filtered dependencies (excluding TensorFlow) have been written to requirements_filtered.txt.")
-    # subprocess.run(['pip', 'install', '-r', f'{repo_name}/requirements.txt', '--target', '/tmp'])
+  subprocess.run(['pip', 'install', '-r', 'requirements_filtered.txt', '--target', '/tmp'])
   
 
 def check_repo(owner, repo_name, token, pr_number):
