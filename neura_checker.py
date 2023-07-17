@@ -18,10 +18,12 @@ def install_dependencies(repo_name):
   requirements = parse_requirements(f'{repo_name}/requirements.txt')
   print('requirements:', requirements)
   # Write the filtered dependencies to a new file (e.g., requirements_filtered.txt)
-  with open('requirements_filtered.txt', 'rw') as file:
+  with open('requirements_filtered.txt', 'w') as file:
     for req in requirements:
-        if("tensorflow" not in req):
-          file.write(req + '\n')
+      if("tensorflow" not in req):
+        file.write(req + '\n')
+
+  with open('requirements_filtered.txt', 'r') as file:
     print('file', file.read())
 
   print("Filtered dependencies (excluding TensorFlow) have been written to requirements_filtered.txt.")
