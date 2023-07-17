@@ -25,11 +25,11 @@ encoded_jwt = jwt.encode(payload, private_key, algorithm="RS256")
 
 def handler(event, context):
   data=json.loads(event['body'])
-  print('data:', data['base'])
+  print('data:', data['pull_request']['base'])
   if data['action']=='opened':
      owner=data['pull_request']['head']['repo']['owner']['login']
      repo_name=data['pull_request']['head']['repo']['name']
-     branch_name=data['base']['ref']
+     branch_name=data['pull_request']['base']['ref']
      pr_number=data['number']
   token=clone_repo(owner, repo_name, branch_name)
   neura_checker.check_repo(owner, repo_name, token, pr_number)
