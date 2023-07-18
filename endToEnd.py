@@ -28,10 +28,7 @@ def parserType(fileName):
 def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128, 10], groovePath = "", grammarName=""):
     # FOR TESTING PURPOSES
     # BECAUSE /var/task is lambda-specific, while tests are in github actions
-    print('hi1')
     groovePath="/groove-5_7_4-bin/groove-5_7_4/bin/" if os.environ.get("TEST_MODE")=="1" else "/var/task/groove-5_7_4-bin/groove-5_7_4/bin/"
-    print('hi2')
-    print(groovePath)
     grammarName="/DNN-metamodel" if os.environ.get("TEST_MODE")=="1" else "/var/task/DNN-metamodel"
     FileNameWithoutPath = fileName.split(os.path.sep)[-1]
     grooveOutputFileName = f"{FileNameWithoutPath}GrooveOut"
@@ -57,6 +54,7 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
             print("Generating model (graph)  ... \n")
             parser_TF.main(fileName, input_size= inputSize, output_size=outputSize)
             print("Running Model Checker (Groove) ... \n")
+            print(os.listdir("/groove-5_7_4-bin/groove-5_7_4/bin"))
             os.system(
                 f'java -jar {groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs {grammarName}.gps {FileNameWithoutPath}.gst')
         except:
