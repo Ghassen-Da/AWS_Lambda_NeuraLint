@@ -100,6 +100,7 @@ def main(inputGraphName="TF_lenet", parserType = "tf"):
     print('hi', os.getcwd())
     grooveOutputName = inputGraphName
     print('output name',grooveOutputName)
+    print('aaslema', os.listdir('../'))
     tree = ET.parse(f'{grooveOutputName}.gst')
     root = tree.getroot()
     print('1', os.listdir())
