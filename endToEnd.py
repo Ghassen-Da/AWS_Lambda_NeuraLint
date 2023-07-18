@@ -61,9 +61,8 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
             parent_directory = os.path.dirname(current_directory)
             print("parent directory", parent_directory)
             print("listdir",os.listdir(parent_directory))
-            print(os.listdir("../groove-5_7_4-bin/groove-5_7_4/bin"))
             os.system(
-                f'java -jar {groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs {grammarName}.gps {FileNameWithoutPath}.gst')
+                f'java -jar ../{groovePath}Generator.jar -f ../{grooveOutputFileName}.gst -s bfs {grammarName}.gps {FileNameWithoutPath}.gst')
         except:
             return f"{FileNameWithoutPath}.py\n\rError: input file is not valid or not match with selected parser type"
 
