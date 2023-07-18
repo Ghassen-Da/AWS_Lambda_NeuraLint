@@ -99,7 +99,8 @@ def main(inputGraphName="TF_lenet", parserType = "tf"):
     print('hello', os.listdir())
     print('hi', os.getcwd())
     grooveOutputName = inputGraphName
-    tree = ET.parse(f'../{grooveOutputName}.gst')
+    print('output name',grooveOutputName)
+    tree = ET.parse(f'{grooveOutputName}.gst')
     root = tree.getroot()
     print('1', os.listdir())
     print('2', os.getcwd())
