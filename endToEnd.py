@@ -55,7 +55,7 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
             parser_TF.main(fileName, input_size= inputSize, output_size=outputSize)
             print("Running Model Checker (Groove) ... \n")
             print('hi')
-            print(os.listdir("/groove-5_7_4-bin"))
+            print(os.listdir("groove-5_7_4-bin"))
             print(os.listdir("/groove-5_7_4-bin/groove-5_7_4/bin"))
             os.system(
                 f'java -jar {groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs {grammarName}.gps {FileNameWithoutPath}.gst')
