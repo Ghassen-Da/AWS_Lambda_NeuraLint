@@ -36,34 +36,26 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
 
     if parser_type == "keras":
         parser = "keras"
-
         try:
             print("Generating model (graph)  ... \n")
             parser_Keras.main(fileName, input_size=inputSize, output_size=outputSize)
             print("Running Model Checker (Groove) ... \n")
             os.system(
-                f'java -jar {groovePath}Generator.jar -f Keras_graphs/{grooveOutputFileName}.gst -s bfs {grammarName}.gps Keras_graphs/{FileNameWithoutPath}.gst')
+                f'java -jar ../{groovePath}Generator.jar -f ../Keras_graphs/{grooveOutputFileName}.gst -s bfs ../{grammarName}.gps ../Keras_graphs/{FileNameWithoutPath}.gst')
         except:
             return f"{FileNameWithoutPath}.py\n\rError: input file is not valid or not match with selected parser type"
 
 
     elif parser_type == "tf":
         parser = "tf"
-
         try:
             print("Generating model (graph)  ... \n")
             parser_TF.main(fileName, input_size= inputSize, output_size=outputSize)
             print("Running Model Checker (Groove) ... \n")
-            # Get the current working directory
-            current_directory = os.getcwd()
-            print("current_directory", current_directory)
-            # Get the parent directory by using the `os.path.dirname()` function
-            parent_directory = os.path.dirname(current_directory)
-            print("parent directory", parent_directory)
-            print("listdir",os.listdir(parent_directory))
             os.system(
                 f'java -jar ../{groovePath}Generator.jar -f ../{grooveOutputFileName}.gst -s bfs ../{grammarName}.gps ../{FileNameWithoutPath}.gst')
         except:
+            print('I am in this error')
             return f"{FileNameWithoutPath}.py\n\rError: input file is not valid or not match with selected parser type"
 
 
