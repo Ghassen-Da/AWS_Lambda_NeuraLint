@@ -73,6 +73,7 @@ def checkInOutSize(inOut):
     return inOutList
 
 def main(file_folderName,inputSize,outputSize,parserName,resultFileName):
+    print("TEST MODE",os.environ.get("TEST_MODE"))
     if inputSize == False or outputSize==False:
         raise SystemExit("Error : Input and output size should be entered as array([x1, x2, x3, ...]).")
     parserName=parserName.lower()

@@ -5,6 +5,8 @@ import sys
 sys.path.append('..')
 from endToEnd import main
 
+os.environ["TEST_MODE"] = "1"
+
 class NeuraTest(unittest.TestCase):
     def test_neura(self):
         print('Start testing...')
