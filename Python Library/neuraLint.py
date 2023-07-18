@@ -10,6 +10,7 @@ def check_Groove():
   # BECAUSE /var/task is lambda-specific, while tests are in github actions
   groovePath="/groove-5_7_4-bin/groove-5_7_4/bin/" if os.environ.get("TEST_MODE")=="1" else "/var/task/groove-5_7_4-bin/groove-5_7_4/bin/"
   grammarName="/DNN-metamodel" if os.environ.get("TEST_MODE")=="1" else "/var/task/DNN-metamodel"
+  print('groovepath:', groovePath)
   # FileNameWithoutPath = fileName.split(os.path.sep)[-1]
   grooveOutputFileName = "Model" + "GrooveOut"
   print("Running Model Checker (Groove) ... \n")
