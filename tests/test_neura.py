@@ -8,7 +8,7 @@ from endToEnd import main
 class NeuraTest(unittest.TestCase):
     def test_neura(self):
         print('Start testing...')
-        output = main("mix_bugs_1", [32,28,28,1], [32,10], "tf", "result")
+        output = main("mix_bugs_1.py", [32,28,28,1], [32,10], "tf", "result")
         print(output)
         print('Testing completed.')
 
