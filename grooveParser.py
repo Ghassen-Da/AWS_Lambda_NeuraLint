@@ -100,7 +100,8 @@ def main(inputGraphName="TF_lenet", parserType = "tf"):
     grooveOutputName = inputGraphName
     tree = ET.parse(f'{grooveOutputName}.gst')
     root = tree.getroot()
-
+    print('1', os.listdir())
+    print('2', os.getcwd())
 
     for edge in root.iter("{http://www.gupro.de/GXL/gxl-1.0.dtd}edge"):
         fromNode = edge.attrib.get("from")
@@ -125,7 +126,7 @@ def main(inputGraphName="TF_lenet", parserType = "tf"):
                         flags.update({fromNode: temp})
                     else:
                         flags.update({fromNode: [strTag.text.replace("flag:", "")]})
-
+            print('3')
         elif fromNode != toNode:
             for strTag in edge.iter("{http://www.gupro.de/GXL/gxl-1.0.dtd}string"):
                 if strTag.text == "has-a" or strTag.text == "has":
