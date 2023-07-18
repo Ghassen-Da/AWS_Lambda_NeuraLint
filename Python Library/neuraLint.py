@@ -8,11 +8,8 @@ import os
 def check_Groove():
   # FOR TESTING PURPOSES
   # BECAUSE /var/task is lambda-specific, while tests are in github actions
-  print('here1')
   groovePath="/groove-5_7_4-bin/groove-5_7_4/bin/" if os.environ.get("TEST_MODE")=="1" else "/var/task/groove-5_7_4-bin/groove-5_7_4/bin/"
-  print('here2')
   grammarName="/DNN-metamodel" if os.environ.get("TEST_MODE")=="1" else "/var/task/DNN-metamodel"
-  print('groovepath:', groovePath)
   # FileNameWithoutPath = fileName.split(os.path.sep)[-1]
   grooveOutputFileName = "Model" + "GrooveOut"
   print("Running Model Checker (Groove) ... \n")
