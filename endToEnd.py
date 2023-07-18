@@ -55,7 +55,12 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
             parser_TF.main(fileName, input_size= inputSize, output_size=outputSize)
             print("Running Model Checker (Groove) ... \n")
             print('hi')
-            print("cwd", os.getcwd('../'))
+            # Get the current working directory
+            current_directory = os.getcwd()
+            print("current_directory", current_directory)
+            # Get the parent directory by using the `os.path.dirname()` function
+            parent_directory = os.path.dirname(current_directory)
+            print("parent directory", parent_directory)
             print(os.listdir("../groove-5_7_4-bin/groove-5_7_4/bin"))
             os.system(
                 f'java -jar {groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs {grammarName}.gps {FileNameWithoutPath}.gst')
