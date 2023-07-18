@@ -53,7 +53,7 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
             parser_TF.main(fileName, input_size= inputSize, output_size=outputSize)
             print("Running Model Checker (Groove) ... \n")
             os.system(
-                f'java -jar ../{groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs ../{grammarName}.gps ../{FileNameWithoutPath}.gst')
+                f'java -jar ../{groovePath}Generator.jar -f ../{grooveOutputFileName}.gst -s bfs ../{grammarName}.gps ../{FileNameWithoutPath}.gst')
         except:
             return f"{FileNameWithoutPath}.py\n\rError: input file is not valid or not match with selected parser type"
 
