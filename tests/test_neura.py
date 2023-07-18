@@ -1,6 +1,6 @@
 import unittest
 
-from ..endToEnd import main
+from NeuraLint_lambda_handler.endToEnd import main
 
 class NeuraSum(unittest.TestCase):
     def test_neura():
