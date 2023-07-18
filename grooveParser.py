@@ -207,5 +207,3 @@ def main(inputGraphName="TF_lenet", parserType = "tf"):
 if __name__ == "__main__":
     program_name = 'SO_deep_CNN_asymetry_blocksGrooveOut'
     result = main(program_name, "keras")
-    print("result is :")
-    print(result)

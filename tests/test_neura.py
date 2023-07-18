@@ -9,7 +9,6 @@ os.environ["TEST_MODE"] = "1"
 
 class NeuraTest(unittest.TestCase):
     def test_neura(self):
-        print("hi")
         print('Start testing...')
         output = main("mix_bugs_1.py", [32,28,28,1], [32,10], "tf", "result")
         print(output)
