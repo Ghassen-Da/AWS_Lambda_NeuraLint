@@ -1,6 +1,6 @@
 import unittest
 import os
-# os.chdir("tests")
+os.chdir("tests")
 import sys
 sys.path.append('..')
 from endToEnd import main
