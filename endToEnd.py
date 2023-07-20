@@ -31,7 +31,7 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
     groovePath="/groove-5_7_4-bin/groove-5_7_4/bin/" if os.environ.get("TEST_MODE")=="1" else "/var/task/groove-5_7_4-bin/groove-5_7_4/bin/"
     grammarName="/DNN-metamodel" if os.environ.get("TEST_MODE")=="1" else "/var/task/DNN-metamodel"
     FileNameWithoutPath = fileName.split(os.path.sep)[-1]
-    grooveOutputFileName = f"polytechnique"
+    grooveOutputFileName = f"{FileNameWithoutPath}GrooveOut"
     parser_type = parser
 
     if parser_type == "keras":
@@ -52,9 +52,13 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
             print("Generating model (graph)  ... \n")
             parser_TF.main(fileName, input_size= inputSize, output_size=outputSize)
             print("Running Model Checker (Groove) ... \n")
-            os.system(
-                f'java -jar ../{groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs ../{grammarName}.gps ../{FileNameWithoutPath}.gst')
+            if os.environ.get("TEST_MODE")=="1":
+                os.system(
+                    f'java -jar ../{groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs ../{grammarName}.gps ../{FileNameWithoutPath}.gst')
                                                         # I cant find this file after execution 
+            else:
+                os.system(
+                f'java -jar {groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs {grammarName}.gps {FileNameWithoutPath}.gst')
         except:
             return f"{FileNameWithoutPath}.py\n\rError: input file is not valid or not match with selected parser type"
 
