@@ -31,7 +31,7 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
     groovePath="/groove-5_7_4-bin/groove-5_7_4/bin/" if os.environ.get("TEST_MODE")=="1" else "/var/task/groove-5_7_4-bin/groove-5_7_4/bin/"
     grammarName="/DNN-metamodel" if os.environ.get("TEST_MODE")=="1" else "/var/task/DNN-metamodel"
     FileNameWithoutPath = fileName.split(os.path.sep)[-1]
-    grooveOutputFileName = f"{FileNameWithoutPath}GrooveOut"
+    grooveOutputFileName = f"polytechnique"
     parser_type = parser
 
     if parser_type == "keras":
