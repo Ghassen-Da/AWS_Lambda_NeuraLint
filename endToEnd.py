@@ -54,7 +54,7 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
             print("Running Model Checker (Groove) ... \n")
             if os.environ.get("TEST_MODE")=="1":
                 os.system(
-                    f'java -jar ..{groovePath}Generator.jar -f ../{grooveOutputFileName}.gst -s bfs ..{grammarName}.gps {FileNameWithoutPath}.gst')
+                    f'java -jar ..{groovePath}Generator.jar -f aaa.gst -s bfs ..{grammarName}.gps {FileNameWithoutPath}.gst')
                                                         # I cant find this file after execution 
                 with open(f'{FileNameWithoutPath}.gst','r') as f:
                     print('2') 
