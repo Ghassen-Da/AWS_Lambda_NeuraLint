@@ -56,9 +56,9 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
                 os.system(
                     f'java -jar ..{groovePath}Generator.jar -f ../{grooveOutputFileName}.gst -s bfs ..{grammarName}.gps {FileNameWithoutPath}.gst')
                                                         # I cant find this file after execution 
-                # with open(f'../{FileNameWithoutPath}.gst','r') as f:
-                #     print('2') 
-                #     print(f.read())
+                with open(f'{FileNameWithoutPath}.gst','r') as f:
+                    print('2') 
+                    print(f.read())
                 print('winek')
                 print(os.getcwd())
                 print(os.listdir())
