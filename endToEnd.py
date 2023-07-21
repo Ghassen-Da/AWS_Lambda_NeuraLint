@@ -55,7 +55,7 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
             if os.environ.get("TEST_MODE")=="1":
                 print('ahla bik', os.listdir('../'))
                 os.system(
-                    f'java -jar ../{groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs ../{grammarName}.gps ../{FileNameWithoutPath}.gst')
+                    f'java -jar ..{groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs ..{grammarName}.gps ../{FileNameWithoutPath}.gst')
                                                         # I cant find this file after execution 
                 print('winek')
                 print(os.listdir())
