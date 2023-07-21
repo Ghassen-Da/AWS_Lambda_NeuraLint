@@ -57,7 +57,7 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
                     print('1')
                     print(f.read())
                 with open(f'../{FileNameWithoutPath}.gst','r') as f:
-                    print('2')
+                    print('2') 
                     print(f.read())
                 os.system(
                     f'java -jar ..{groovePath}Generator.jar -f ../{grooveOutputFileName}.gst -s bfs ..{grammarName}.gps {FileNameWithoutPath}.gst')
