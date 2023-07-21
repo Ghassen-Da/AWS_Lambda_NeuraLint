@@ -53,12 +53,14 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
             parser_TF.main(fileName, input_size= inputSize, output_size=outputSize)
             print("Running Model Checker (Groove) ... \n")
             if os.environ.get("TEST_MODE")=="1":
-                print('ahla bik', os.listdir('../'))
+                print(f'..{groovePath}Generator.jar', os.listdir('../'))
                 os.system(
                     f'java -jar ..{groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs ..{grammarName}.gps ../{FileNameWithoutPath}.gst')
                                                         # I cant find this file after execution 
                 print('winek')
+                print(os.getcwd())
                 print(os.listdir())
+                print(os.listdir('../'))
             else:
                 os.system(
                 f'java -jar {groovePath}Generator.jar -f {grooveOutputFileName}.gst -s bfs {grammarName}.gps {FileNameWithoutPath}.gst')
