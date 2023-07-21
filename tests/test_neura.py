@@ -1,6 +1,7 @@
 import unittest
 import os
-os.chdir("tests")
+if os.environ.get("TEST_MODE")=="1":
+    os.chdir("tests")
 import sys
 sys.path.append('..')
 from endToEnd import main
