@@ -9,8 +9,7 @@ os.environ["TEST_MODE"] = "1"
 
 class NeuraTest(unittest.TestCase):
     def test_neura(self):
-        desired_output="""
-            mix_bugs_1.py
+        desired_output=""" mix_bugs_1.py
 
             Layer 1 ==> A learning layer should no longer include a bias when it is followed by batchnorm., The local window size for spatial filtering should generally increase or stay the same throughout the convolutional layers.
 
@@ -22,8 +21,7 @@ class NeuraTest(unittest.TestCase):
 
             Layer 12 ==> A learning layer should no longer include a bias when it is followed by batchnorm.
 
-            Layer 14 ==> Batchnorm layer should be before the dropout.
-        """
+            Layer 14 ==> Batchnorm layer should be before the dropout. """
         print('Start testing...')
         output = main("mix_bugs_1.py", [32,28,28,1], [32,10], "tf", "result")
         print('**',output,'**')
