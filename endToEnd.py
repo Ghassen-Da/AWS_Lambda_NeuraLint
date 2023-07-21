@@ -53,7 +53,7 @@ def parsDnnScript(fileName, parser = "tf" , inputSize=[128, 20], outputSize=[128
             parser_TF.main(fileName, input_size= inputSize, output_size=outputSize)
             print("Running Model Checker (Groove) ... \n")
             if os.environ.get("TEST_MODE")=="1":
-                print('here', os.listdir(f'..{grammarName}.gps'))
+                print('here', os.listdir(f'../'))
                 with open(f'../{FileNameWithoutPath}.gst','r') as f:
                     print('2') 
                     print(f.read())
