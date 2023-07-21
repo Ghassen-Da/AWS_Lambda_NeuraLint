@@ -26,7 +26,8 @@ class NeuraTest(unittest.TestCase):
         """
         print('Start testing...')
         output = main("mix_bugs_1.py", [32,28,28,1], [32,10], "tf", "result")
-        print(output)
+        print('**',output,'**')
+        print('**',desired_output,'**')
         assert output==desired_output
         print('Testing completed.')
 
