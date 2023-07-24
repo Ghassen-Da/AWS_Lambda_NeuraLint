@@ -193,7 +193,7 @@ def main(inputGraphName="TF_lenet", parserType = "tf"):
         for item in sortedBuggyLayers:
             output += sortedBuggyLayers.get(item)
             if item != lastKey:
-                output += "\n\r******************"
+                output += "\n\r"
 
     if not buggyFlag:
         output = "There is no identified fault in the DNN script"
