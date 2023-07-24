@@ -183,7 +183,7 @@ def main(inputGraphName="TF_lenet", parserType = "tf"):
         BuggyLayerName = item.get("from")
         buggyLayerNumber = nodeName.get(BuggyLayerName)
         layerErrors = flags.get(item.get("to"))
-        report = "Layerrrrrr {} ==> ".format(buggyLayerNumber)
+        report = "Layer {} ==> ".format(buggyLayerNumber)
         for item in layerErrors:
             report += faultCodeTranslator(item)
             if layerErrors.index(item) != len(layerErrors)-1:
